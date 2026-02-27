@@ -185,6 +185,7 @@ footer {
 
 .dot.active {
   background: #1d1d1f;
+}
 
 .client {
   display: flex;
