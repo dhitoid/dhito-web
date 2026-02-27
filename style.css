@@ -2,11 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +31,11 @@ body {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+  opacity: 0.6;
 }
 
 .btn-nav {
@@ -84,12 +84,13 @@ h2 {
 
 .about-grid {
   max-width: 800px;
+  line-height: 1.8;
 }
 
 .grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .card, .work-card {
@@ -119,4 +120,32 @@ footer {
   padding: 60px 10%;
   font-size: 14px;
   color: #777;
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 120px 8%;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .navbar {
+    padding: 20px 6%;
+  }
+
+  section {
+    padding: 90px 6%;
+  }
+
 }
