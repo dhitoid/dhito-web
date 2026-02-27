@@ -1,4 +1,7 @@
-const navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===== NAVBAR SCROLL EFFECT ===== */
+  const navbar = document.querySelector(".navbar");
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 20) {
@@ -7,31 +10,35 @@ const navbar = document.querySelector(".navbar");
       navbar.classList.remove("scrolled");
     }
   });
-  
-  const reveals = document.querySelectorAll(".reveal");
 
-  const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    reveals.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
-      if (elementTop < windowHeight - 100) {
-        el.classList.add("active");
+  /* ===== SCROLL REVEAL (INTERSECTION OBSERVER) ===== */
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
       }
     });
-  };
+  }, {
+    threshold: 0.15
+  });
 
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
+  revealElements.forEach(el => observer.observe(el));
 
+  /* ===== SMOOTH SCROLL ===== */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
+    anchor.addEventListener("click", function (e) {
       e.preventDefault();
+
       const target = document.querySelector(this.getAttribute("href"));
       if (!target) return;
 
       window.scrollTo({
-        top: target.offsetTop - 80,
+        top: target.offsetTop - 70,
         behavior: "smooth"
       });
     });
   });
+
+});
