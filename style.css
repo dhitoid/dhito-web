@@ -138,12 +138,53 @@ footer {
   transform: translateY(-6px);
 }
 
-.quote {
-  font-size: 16px;
-  color: #1d1d1f;
-  margin-bottom: 25px;
-  line-height: 1.7;
+.slider {
+  max-width: 700px;
+  margin: 60px auto 0;
+  overflow: hidden;
+  position: relative;
 }
+
+.slides {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide {
+  min-width: 100%;
+  padding: 40px;
+}
+
+.quote {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #1d1d1f;
+}
+
+.slide span {
+  display: block;
+  font-size: 14px;
+  color: #6e6e73;
+  margin-top: 4px;
+}
+
+.dots {
+  margin-top: 30px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 6px;
+  background: #d2d2d7;
+  border-radius: 50%;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.dot.active {
+  background: #1d1d1f;
 
 .client {
   display: flex;
