@@ -271,6 +271,12 @@ h2 {
   box-shadow: 0 40px 80px rgba(0,0,0,0.5);
 }
 
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
 /* CONTACT */
 .contact-box {
   text-align: center;
@@ -347,6 +353,23 @@ footer {
   transform: translate(-50%, -50%);
   z-index: -1;
   transition: transform 0.1s ease-out;
+}
+
+/* WORK SECTION UPGRADE */
+
+.work-overlay h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.view-link{
+  font-size:14px;
+  opacity:0.8;
+}
+
+.disabled{
+  opacity:0.5;
+  pointer-events:none;
 }
 
 /* RESPONSIVE */
