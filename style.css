@@ -298,6 +298,19 @@ footer {
   color: rgba(255,255,255,0.6);
 }
 
+/* ===== SCROLL REVEAL ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
 
