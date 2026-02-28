@@ -256,6 +256,13 @@ h2 {
 
 /* WORK */
 .work-card {
+  position:relative;
+  height:320px;
+  border-radius:28px;
+  overflow:hidden;
+  background:#111;
+  text-decoration:none;
+  transition:0.5s ease;
   min-height: 220px;
   padding: 40px;
   display: flex;
