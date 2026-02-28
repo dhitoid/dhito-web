@@ -255,7 +255,7 @@ h2 {
 }
 
 /* WORK */
-.work-card {
+/*.work-card {
   position:relative;
   height:320px;
   border-radius:28px;
@@ -276,7 +276,7 @@ h2 {
 .work-card:hover {
   transform: translateY(-12px) scale(1.02);
   box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-}
+}*/
 
 .work-grid{
   display:grid;
@@ -366,7 +366,7 @@ footer {
 
 /* WORK CARD PREMIUM PREVIEW */
 
-/*.work-card{
+.work-card{
   position:relative;
   height:320px;
   border-radius:28px;
@@ -378,7 +378,7 @@ footer {
   display:flex;
   align-items:flex-end;
   padding:40px;
-}*/
+}
 
 .preview-image{
   position:absolute;
@@ -404,10 +404,10 @@ footer {
   transition:0.5s ease;
 }
 
-/*.work-card:hover{
+.work-card:hover{
   transform:translateY(-12px);
   box-shadow:0 40px 80px rgba(0,0,0,0.25);
-}*/
+}
 
 .work-card:hover .preview-image{
   transform:scale(1.1);
