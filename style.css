@@ -202,12 +202,13 @@ h2 {
 }
 
 /* =========================
-   GRID
+   WORK GRID
 ========================= */
 
-.grid {
+/* WORK GRID FIX */
+.work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
@@ -228,42 +229,70 @@ h2 {
    WORK SECTION FIXED
 ========================= */
 
+/* WORK CARD BASE */
 .work-card {
   position: relative;
   height: 320px;
+  border-radius: 28px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   padding: 40px;
   text-decoration: none;
+  color: white;
   transition: 0.5s ease;
 }
 
+/* PREVIEW IMAGE */
 .preview-image {
   position: absolute;
   inset: 0;
   background-image: url("assets/cafepreview.JPG");
   background-size: cover;
   background-position: top center;
-  transition: 0.6s ease;
-  opacity: 0.85;
+  transition: 0.8s ease;
+  opacity: 0.9;
 }
 
+/* HOVER SCROLL EFFECT */
 .work-card:hover .preview-image {
-  transform: scale(1.1);
   background-position: bottom center;
+  transform: scale(1.08);
 }
 
+/* DARK OVERLAY */
 .work-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent 60%);
 }
 
+/* CONTENT */
 .work-overlay {
   position: relative;
   z-index: 2;
+}
+
+.work-overlay h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.work-overlay p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* DISABLED CARD */
+.work-card.disabled {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  cursor: not-allowed;
+}
+
+.work-card.disabled::after {
+  background: rgba(0,0,0,0.6);
 }
 
 /* =========================
