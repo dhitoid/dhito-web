@@ -380,6 +380,35 @@ footer {
   padding:40px;
 }
 
+/*.preview-image{
+  position:absolute;
+  inset:0;
+  background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") top center / cover no-repeat;
+  transition:transform 0.6s ease, opacity 0.6s ease;
+  opacity:0.85;
+}
+
+/* SCROLL PREVIEW EFFECT */
+
+/*.scroll-preview{
+  background-size:cover;
+  background-position:top center;
+}
+
+.work-card:hover .scroll-preview{
+  animation:previewScroll 5s ease forwards;
+  transform:scale(1.05);
+}
+
+@keyframes previewScroll{
+  0%{
+    background-position:top center;
+  }
+  100%{
+    background-position:bottom center;
+  }
+}*/
+
 .preview-image{
   position:absolute;
   inset:0;
