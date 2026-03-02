@@ -39,23 +39,22 @@ window.addEventListener("mousemove", e => {
   });
 
   /* ===== SCROLL REVEAL (INTERSECTION OBSERVER) ===== */
-  const reveals = document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
+  entries.forEach((entry, i) => {
     if(entry.isIntersecting){
-      entry.target.style.transitionDelay = `${index * 0.1}s`;
+      entry.target.style.transitionDelay = `${i * 0.12}s`;
       entry.target.classList.add("active");
       observer.unobserve(entry.target);
     }
   });
 },{
-  threshold: 0.15
+  threshold: 0.18,
+  rootMargin: "0px 0px -80px 0px"
 });
 
-reveals.forEach(el => {
-  observer.observe(el);
-});
+reveals.forEach(el => observer.observe(el));
 
 document.querySelectorAll(".grid, .work-grid").forEach(grid=>{
   const items = grid.children;
