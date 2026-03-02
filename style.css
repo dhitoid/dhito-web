@@ -20,6 +20,14 @@ body{
   background:#0f172a;
 }
 
+.reveal,
+.work-card,
+.device-mockup,
+.device-screen{
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+
 /* ============================= */
 /* BACKGROUND EFFECTS */
 /* ============================= */
