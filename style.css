@@ -412,7 +412,7 @@ footer {
 .preview-image{
   position:absolute;
   inset:0;
-  background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") top center / cover no-repeat;
+  background:url("assets/cafepreview.JPG") top center / cover no-repeat;
   transition:transform 0.6s ease, opacity 0.6s ease;
   opacity:0.85;
 }
