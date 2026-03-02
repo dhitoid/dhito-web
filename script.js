@@ -57,14 +57,6 @@ reveals.forEach(el => {
   observer.observe(el);
 });
 
-document.querySelectorAll(".grid, .work-grid").forEach(grid=>{
-  const items = grid.children;
-  Array.from(items).forEach((item, i)=>{
-    item.classList.add("reveal");
-    item.style.transitionDelay = `${i * 0.12}s`;
-  });
-});
-
 /* ============================= */
 /* TEXT STAGGER LETTER SPLIT */
 /* ============================= */
