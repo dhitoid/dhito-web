@@ -42,19 +42,20 @@ window.addEventListener("mousemove", e => {
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry, index) => {
     if(entry.isIntersecting){
-      entry.target.style.transitionDelay = `${i * 0.12}s`;
+      entry.target.style.transitionDelay = `${index * 0.1}s`;
       entry.target.classList.add("active");
       observer.unobserve(entry.target);
     }
   });
 },{
-  threshold: 0.18,
-  rootMargin: "0px 0px -80px 0px"
+  threshold: 0.15
 });
 
-reveals.forEach(el => observer.observe(el));
+reveals.forEach(el => {
+  observer.observe(el);
+});
 
 document.querySelectorAll(".grid, .work-grid").forEach(grid=>{
   const items = grid.children;
@@ -62,6 +63,29 @@ document.querySelectorAll(".grid, .work-grid").forEach(grid=>{
     item.classList.add("reveal");
     item.style.transitionDelay = `${i * 0.12}s`;
   });
+});
+
+/* ============================= */
+/* TEXT STAGGER LETTER SPLIT */
+/* ============================= */
+
+document.querySelectorAll(".stagger-text").forEach(el => {
+
+  const text = el.textContent;
+  el.textContent = "";
+
+  [...text].forEach((char, i) => {
+    const span = document.createElement("span");
+    span.textContent = char === " " ? "\u00A0" : char;
+    span.style.transitionDelay = `${i * 0.03}s`;
+    el.appendChild(span);
+  });
+
+  // Trigger animation after small delay
+  setTimeout(() => {
+    el.classList.add("revealed");
+  }, 200);
+
 });
 
   /* ===== SMOOTH SCROLL ===== */
