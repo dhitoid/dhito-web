@@ -368,16 +368,21 @@ footer {
 
 .work-card{
   position:relative;
-  height:320px;
-  border-radius:28px;
+  height:420px;
+  border-radius:30px;
   overflow:hidden;
-  background:#111;
-  color:white;
+  background:linear-gradient(135deg,#111,#1a1a1a);
   text-decoration:none;
-  transition:0.5s ease;
   display:flex;
   align-items:flex-end;
   padding:40px;
+  transition:0.5s ease;
+  color:white;
+}
+
+.work-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 50px 100px rgba(0,0,0,0.4);
 }
 
 /*.preview-image{
@@ -531,9 +536,18 @@ footer {
   animation:none;
 }
 
+.device-mockup::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  background:linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8));
+  pointer-events:none;
+}
+
 /* SCROLL ANIMATION */
 
-.device-card:hover .device-screen{
+.work-card:hover .device-screen{
   animation:deviceScroll 6s ease forwards;
 }
 
