@@ -54,6 +54,48 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
+  /* ===========================
+   METRICS COUNTER ANIMATION
+=========================== */
+
+const counters = document.querySelectorAll('.metrics h3');
+
+const animateCounter = (counter) => {
+  const targetText = counter.innerText;
+  const target = parseInt(targetText.replace(/\D/g, ''));
+  const suffix = targetText.replace(/[0-9]/g, '');
+
+  let current = 0;
+  const duration = 1800;
+  const increment = target / (duration / 16);
+
+  const updateCounter = () => {
+    current += increment;
+
+    if (current < target) {
+      counter.innerText = Math.floor(current) + suffix;
+      requestAnimationFrame(updateCounter);
+    } else {
+      counter.innerText = target + suffix;
+    }
+  };
+
+  updateCounter();
+};
+
+const metricsSection = document.querySelector('.metrics');
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      counters.forEach(counter => animateCounter(counter));
+      obs.disconnect(); // hanya jalan sekali
+    }
+  });
+}, { threshold: 0.5 });
+
+observer.observe(metricsSection);
 
   /* ============================= */
   /* SCROLL REVEAL (STABLE DELAY) */
