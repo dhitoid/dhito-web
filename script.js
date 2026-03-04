@@ -55,42 +55,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   
-  /* ===========================
-   METRICS COUNTER ANIMATION
+/* ===========================
+   METRICS COUNTER - CINEMATIC
 =========================== */
 
 const counters = document.querySelectorAll('.metrics h3');
+const metricsSection = document.querySelector('.metrics');
 
-const animateCounter = (counter) => {
+function easeOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+function animateCounter(counter, delay = 0) {
   const targetText = counter.innerText;
   const target = parseInt(targetText.replace(/\D/g, ''));
   const suffix = targetText.replace(/[0-9]/g, '');
 
-  let current = 0;
-  const duration = 1800;
-  const increment = target / (duration / 16);
+  const duration = 2000; // lebih cinematic
+  let startTime = null;
 
-  const updateCounter = () => {
-    current += increment;
+  function update(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
 
-    if (current < target) {
-      counter.innerText = Math.floor(current) + suffix;
-      requestAnimationFrame(updateCounter);
+    const easedProgress = easeOutCubic(progress);
+    const currentValue = Math.floor(easedProgress * target);
+
+    counter.innerText = currentValue + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
     } else {
       counter.innerText = target + suffix;
+
+      // subtle finish pop
+      counter.style.transform = "scale(1.08)";
+      setTimeout(() => {
+        counter.style.transform = "scale(1)";
+      }, 180);
     }
-  };
+  }
 
-  updateCounter();
-};
-
-const metricsSection = document.querySelector('.metrics');
+  setTimeout(() => {
+    requestAnimationFrame(update);
+  }, delay);
+}
 
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      counters.forEach(counter => animateCounter(counter));
-      obs.disconnect(); // hanya jalan sekali
+
+      counters.forEach((counter, index) => {
+        animateCounter(counter, index * 200); // stagger effect
+      });
+
+      obs.disconnect();
     }
   });
 }, { threshold: 0.5 });
