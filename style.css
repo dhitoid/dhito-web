@@ -244,7 +244,7 @@ body::before{
 
 .work-card{
   position:relative;
-  width : 100%;
+  width:100%;
   height:440px;
   overflow:hidden;
   display:flex;
