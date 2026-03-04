@@ -1,15 +1,23 @@
 /* ============================= */
-/* HARD RESET & VIEWPORT FIX */
+/* HARD RESET & SAFE VIEWPORT */
 /* ============================= */
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  min-width:0;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
 }
 
 body{
@@ -21,7 +29,7 @@ body{
 }
 
 /* ============================= */
-/* GLOBAL SPACING & TYPOGRAPHY */
+/* CONTAINER */
 /* ============================= */
 
 .container{
@@ -42,7 +50,7 @@ h2{
 }
 
 /* ============================= */
-/* BACKGROUND PREMIUM GLOW */
+/* PREMIUM BACKGROUND GLOW */
 /* ============================= */
 
 body::before{
@@ -50,8 +58,8 @@ body::before{
   position:fixed;
   inset:-20%;
   background:
-    radial-gradient(circle at 20% 30%, #1d4ed8, transparent 40%),
-    radial-gradient(circle at 80% 70%, #2563eb, transparent 40%);
+    radial-gradient(circle at 25% 30%, #1d4ed8, transparent 40%),
+    radial-gradient(circle at 80% 70%, #2563eb, transparent 45%);
   animation:gradientMove 20s ease infinite alternate;
   z-index:-2;
   filter:blur(120px);
@@ -70,12 +78,11 @@ body::before{
 .navbar{
   position:sticky;
   top:0;
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
-  background:rgba(15,23,42,0.55);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  background:rgba(15,23,42,0.6);
   border-bottom:1px solid rgba(255,255,255,0.06);
   z-index:100;
-  transition:0.4s ease;
 }
 
 .nav-inner{
@@ -88,7 +95,6 @@ body::before{
 .logo{
   font-weight:800;
   font-size:18px;
-  letter-spacing:1px;
   background:linear-gradient(90deg,#fff,#60a5fa);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -120,7 +126,6 @@ body::before{
 .hero{
   padding:180px 0 160px;
   text-align:center;
-  position:relative;
 }
 
 .hero h1{
@@ -172,12 +177,13 @@ body::before{
 }
 
 .metrics h3{
-  font-size:46px;
+  font-size:48px;
   font-weight:800;
   margin-bottom:10px;
   background:linear-gradient(90deg,#ffffff,#60a5fa);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  transition:transform .3s ease;
 }
 
 .metrics p{
@@ -185,7 +191,7 @@ body::before{
 }
 
 /* ============================= */
-/* GLASS EFFECT */
+/* GLASS UI */
 /* ============================= */
 
 .about-content,
@@ -193,10 +199,10 @@ body::before{
 .work-card,
 .contact-box{
   background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(30px);
+  backdrop-filter:blur(28px);
   border:1px solid rgba(255,255,255,0.07);
-  border-radius:32px;
-  box-shadow:0 30px 90px rgba(0,0,0,0.35);
+  border-radius:30px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.35);
 }
 
 /* ============================= */
@@ -245,13 +251,13 @@ body::before{
 .work-card{
   position:relative;
   height:440px;
-  overflow:hidden;
   display:flex;
   align-items:flex-end;
   padding:40px;
   text-decoration:none;
   color:white;
   transition:0.5s ease;
+  overflow:hidden;
 }
 
 .work-card:hover{
@@ -308,16 +314,6 @@ footer{
   color:rgba(255,255,255,0.6);
 }
 
-img, video, canvas {
-  max-width:100%;
-  height:auto;
-  display:block;
-}
-
-* {
-  min-width:0;
-}
-
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */
@@ -330,6 +326,20 @@ img, video, canvas {
 
   .hero p{ font-size:16px; }
 
+  .about-content{ padding:50px 30px; }
+
+  .contact-box{ padding:60px 30px; }
+
   .work-card{ height:400px; }
 
+}
+
+/* ============================= */
+/* SAFE MEDIA */
+/* ============================= */
+
+img,video,canvas{
+  max-width:100%;
+  height:auto;
+  display:block;
 }
